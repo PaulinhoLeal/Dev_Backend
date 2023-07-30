@@ -1,0 +1,19 @@
+<form class="formulario">
+    <input type="number" name="primeiro-campo" id="id"
+    [(ngModel)]=" jogo.id" placeholder="Insira o id do jogo">
+
+    <input type="text" name="segundo-campo" id="img"
+    [(ngModel)]="jogo.img" placeholder="insira a imagem do jogo">
+
+    <input type="text" name="terceiro-campo" id="nome"
+    [(ngModel)]="jogo.nome" placeholder="insira o nome do jogo">
+
+    <input type="text" name="quarto-campo" id="descricao"
+    [(ngModel)]="jogo.descricao" placeholder="Insrira a descrição do jogo">
+
+    <input type="number" name="quarto-campo" id="preco"
+    [(ngModel)]="jogo.preco" placeholder="Insira o preço do jogo">
+
+
+    <button class="btn btn-primary" (click)="saveJogo()">enviar</button>
+</form>
