@@ -1,25 +1,41 @@
 package com.aula7.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
+@Entity
+
 public class Jogo {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private int id;
+    @NotNull
     private String nome;
     private String descricao;
+    @NotNull
     private double preco;
+    @NotNull
     private String img;
     @JsonProperty("esta_favoritado")
     private boolean estaFavoritado;
 
+    @ManyToOne
+    @JoinColumn(name= "categoria_id")
+    @JsonIgnoreProperties("jogos")
+    private  Categoria categoria;
 
-    public Jogo(int id, String nome, String descricao, double preco, String img, boolean estaFavoritado) {
-        this.id = id;
-        this.nome = nome;
-        this.descricao = descricao;
-        this.preco = preco;
-        this.img = img;
-        this.estaFavoritado = estaFavoritado;
-    }
+    @ManyToOne
+    @JoinColumn(name = "conta_id")
+    @JsonIgnoreProperties("jogos")
+    private Conta conta;
+
+
+
+
 
     public int getId(){
       return   this.id;
