@@ -13,12 +13,12 @@ public class Conta {
     private int id;
     @NotNull
     private String nome;
-    @OneToMany(mappedBy = "contas", cascade = CascadeType.ALL)
-    @JsonIgnoreProperties("contas")
+    @OneToMany(mappedBy = "conta", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("conta")
     private List<Jogo> jogos;
 
-    @OneToMany(mappedBy = "usuarios",cascade = CascadeType.ALL)
-    @JsonIgnoreProperties("usuarios")
+    @OneToMany(mappedBy = "conta",cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("conta")
     private List<Usuario> usuarios;
 
     public int getId() {

@@ -16,8 +16,8 @@ public class Usuario {
     private String nome;
     @ManyToOne
     @JoinColumn(name = "conta_id")
-    @JsonIgnoreProperties("contas")
-    private List<Conta> contas;
+    @JsonIgnoreProperties("usuario")
+    private Conta conta;
 
 
     public int getId() {

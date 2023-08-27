@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ListarJogoComponent } from './components/views/jogo/listar-jogo/listar-jogo.component';
 import { AdicionarJogoComponent } from './components/views/jogo/adicionar-jogo/adicionar-jogo.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,9 @@ import { AdicionarJogoComponent } from './components/views/jogo/adicionar-jogo/a
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    FontAwesomeModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
