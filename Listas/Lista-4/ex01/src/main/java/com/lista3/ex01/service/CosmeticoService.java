@@ -3,10 +3,10 @@ package com.lista3.ex01.service;
 import com.lista3.ex01.model.Cosmetico;
 import com.lista3.ex01.repository.BancoDados;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-@Component
+@Service
 public class CosmeticoService {
    @Autowired
    private BancoDados bancoDados;
