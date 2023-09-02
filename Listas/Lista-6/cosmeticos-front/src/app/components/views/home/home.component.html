@@ -1,5 +1,11 @@
-<div class="container" *ngFor="let cosmetico of cosmeticos">
-    <app-card></app-card>   
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-4 mb-5" *ngFor="let cosmetico of cosmeticos">
+
+            <app-card [cosmetico]="cosmetico"></app-card>   
+        </div>
+
+    </div>
     
 </div>
 
