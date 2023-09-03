@@ -1,13 +1,21 @@
-<div class="card" style="width: 18rem;">
-    <img src="{{jogo.img}}" class="card-img-top" alt="...">
-    <div class="card-body">
-    <div class="d-flex justify-content-between" >
-      
-      <h5 class="card-title">{{jogo.nome}}</h5>
-      <fa-icon class="favoritar" (click)="favoritarJogo()" [class.estaFavoritado] ="jogo.esta_favoritado" [icon] ="faHeart"></fa-icon>
-    </div>
+<div class="container" (mouseenter)="mouseover=true" (mouseleave)="mouseover=false">
 
-      <p class="card-text">{{jogo.descricao}}</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+  <fa-icon data-toggle="modal" data-target="#exampleModal"
+    (click)="console.log('AAAAAAAA')" class="x-circle" 
+    [icon]="faCircleXmark" *ngIf="mouseover">
+  </fa-icon>
+
+  <div class="card" style="width: 18rem;">
+      <img src="{{jogo.img}}" class="card-img-top" alt="...">
+      <div class="card-body">
+      <div class="d-flex justify-content-between" >
+        
+        <h5 class="card-title">{{jogo.nome}}</h5>
+        <fa-icon class="favoritar" (click)="favoritarJogo()" [class.estaFavoritado] ="jogo.esta_favoritado" [icon] ="faHeart"></fa-icon>
+      </div>
+  
+        <p class="card-text">{{jogo.descricao}}</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
     </div>
-  </div>
+</div>

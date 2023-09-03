@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Jogo } from 'src/app/model/jogo';
-import {faHeart} from '@fortawesome/free-solid-svg-icons';
+import {faHeart, faCircleXmark} from '@fortawesome/free-solid-svg-icons';
 import { JogoService } from 'src/app/services/jogo.service';
 
 @Component({
@@ -11,6 +11,8 @@ import { JogoService } from 'src/app/services/jogo.service';
 export class CardComponent {
   @Input() jogo!:Jogo;
   faHeart= faHeart;
+  faCircleXmark = faCircleXmark
+  mouseover:boolean = false;
 
   constructor(private jogoService:JogoService){
 
@@ -19,5 +21,8 @@ export class CardComponent {
   favoritarJogo(){
     this.jogoService.favoritarJogo(this.jogo.id).subscribe();
     this.jogo.esta_favoritado =!this.jogo.esta_favoritado;
+  }
+  onClickBotaoExcluir(){
+    this.jogoService.setjogoASerExcluido(this.jogo);
   }
 }

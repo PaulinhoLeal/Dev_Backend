@@ -8,9 +8,9 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { CardComponent } from './components/shared/card/card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { ListarJogoComponent } from './components/views/jogo/listar-jogo/listar-jogo.component';
 import { AdicionarJogoComponent } from './components/views/jogo/adicionar-jogo/adicionar-jogo.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ModalExclusaoComponent } from './components/shared/modal-exclusao/modal-exclusao.component';
 
 @NgModule({
   declarations: [
@@ -18,8 +18,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     HomeComponent,
     NavbarComponent,
     CardComponent,
-    ListarJogoComponent,
-    AdicionarJogoComponent
+    AdicionarJogoComponent,
+    ModalExclusaoComponent
   ],
   imports: [
     BrowserModule,

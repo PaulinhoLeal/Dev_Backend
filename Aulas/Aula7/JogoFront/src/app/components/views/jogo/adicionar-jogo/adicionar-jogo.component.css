@@ -1,4 +1,13 @@
 .formulario{
-    display: flex;
+    display: flex;      
     flex-direction: column;
+    justify-content: center;
+    width: 400px;
+    height: 200px;
+    margin-left: 33%;
+}
+.formulario input{
+    justify-content: center;
+    display: flex;
+    align-items: center;
 }

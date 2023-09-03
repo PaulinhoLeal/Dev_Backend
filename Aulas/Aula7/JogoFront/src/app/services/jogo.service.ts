@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Jogo } from '../model/jogo';
 
 @Injectable({
@@ -8,6 +8,8 @@ import { Jogo } from '../model/jogo';
 })
 export class JogoService {
   private rota:string = "http://localhost:8080/jogos"
+  private jogoASerExcluidoSubject = new BehaviorSubject<any>(null);
+  jogoASerExcluido$ = this.jogoASerExcluidoSubject.asObservable();
 
   constructor(private httpClient:HttpClient) { }
 
@@ -21,6 +23,17 @@ export class JogoService {
 
   public favoritarJogo(id:number): Observable<Jogo>{
     return this.httpClient.put<Jogo>(this.rota + "/favoritar/" + id, null )
+  } 
+
+  setjogoASerExcluido(jogo:any){
+    this.jogoASerExcluidoSubject.next(jogo);
   }
+  deleteJogo(id:number){
+    console.log("chamou service jogo");
+    this.httpClient.delete(this.rota + "/" + id).subscribe();
+    window.location.reload();
+  }
+
+
 }
 
