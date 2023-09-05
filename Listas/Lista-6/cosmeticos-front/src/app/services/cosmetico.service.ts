@@ -13,6 +13,6 @@ export class CosmeticoService {
   constructor(private httpClient: HttpClient) { }
 
   public getCosmeticos():Observable<Cosmetico[]>{
-    return this.httpClient.get<Cosmetico[]>(this.rota);
+    return this.httpClient.get<Cosmetico[]>(this.rota+"/");
   }
 }

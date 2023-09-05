@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   constructor(private cosmeticoService:CosmeticoService){}
 
   ngOnInit(): void {
-    this.getCosmeticos;
+    this.getCosmeticos();
   }
 
   getCosmeticos(){
