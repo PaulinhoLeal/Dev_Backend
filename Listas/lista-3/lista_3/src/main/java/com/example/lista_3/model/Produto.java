@@ -1,25 +1,24 @@
 package com.example.lista_3.model;
 
-public class Produto {
+import java.util.UUID;
 
-    private int id;
+public class Produto {
+    private UUID id;
     private String nome;
     private double preco;
 
-    public Produto(){}
+    public Produto() {
+        this.id = UUID.randomUUID();
+    }
 
-    public Produto(int id, String nome, double preco) {
-        this.id = id;
+    public Produto(String nome, double preco) {
+        this.id = UUID.randomUUID();
         this.nome = nome;
         this.preco = preco;
     }
 
-    public int getId() {
+    public UUID getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getNome() {
@@ -37,4 +36,5 @@ public class Produto {
     public void setPreco(double preco) {
         this.preco = preco;
     }
+
 }
