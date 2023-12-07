@@ -1,33 +1,38 @@
 package com.lista.atividade2.model;
 
-public class Jogo {
+import java.util.UUID;
 
-    private int id;
+public class Jogo {
+    private UUID id;
     private String nome;
     private double valor;
 
-    public Jogo(){}
-
-    public Jogo (int id, String nome, double valor){
-        this.id=id;
-        this.nome=nome;
-        this.valor= valor;
+    public Jogo() {
+        this.id = UUID.randomUUID();
     }
-    public int getId() {
+
+    public Jogo(String nome, double valor) {
+        this.id = UUID.randomUUID();
+        this.nome = nome;
+        this.valor = valor;
+    }
+
+    public UUID getId() {
         return id;
     }
-    public void setId(int id) {
-        this.id = id;
-    }
+
     public String getNome() {
         return nome;
     }
+
     public void setNome(String nome) {
         this.nome = nome;
     }
+
     public double getValor() {
         return valor;
     }
+
     public void setValor(double valor) {
         this.valor = valor;
     }
