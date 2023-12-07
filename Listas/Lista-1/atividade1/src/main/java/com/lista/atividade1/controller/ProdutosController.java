@@ -29,8 +29,8 @@ public class ProdutosController {
     @PostMapping
     public String save(@RequestBody Produto bodyProduto) {
         for (Produto produto : produtos) {
-            if (bodyProduto.getCodigoBarra().equals(produto.getCodigoBarra())) {
-                return "Esse ja existente!";
+            if (bodyProduto.getNome().equals(produto.getNome())) {
+                return "Esse produto já existente!";
             }
         }
         produtos.add(bodyProduto);
