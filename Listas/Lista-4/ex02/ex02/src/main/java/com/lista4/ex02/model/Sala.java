@@ -1,28 +1,27 @@
 package com.lista4.ex02.model;
 
-public class Sala {
+import java.util.UUID;
 
-    private int id;
+public class Sala {
+    private UUID id;
     private boolean estaAlugado;
     private String nomeLocatorio;
 
-
-    public Sala (){}
-
-    public Sala (int id, boolean estaAlugado, String nomeLocatorio){
-        this.id=id;
-        this.estaAlugado=estaAlugado;
-        this.nomeLocatorio=nomeLocatorio;
+    public Sala() {
+        this.id = UUID.randomUUID();
     }
 
-    public int getId(){
+    public Sala(boolean estaAlugado, String nomeLocatorio) {
+        this.id = UUID.randomUUID();
+        this.estaAlugado = estaAlugado;
+        this.nomeLocatorio = nomeLocatorio;
+    }
+
+    public UUID getId() {
         return id;
     }
-    public void setId(int id){
-        this.id=id;
-    }
 
-    public boolean getEstaAlugado() {
+    public boolean isEstaAlugado() {
         return estaAlugado;
     }
 
@@ -37,4 +36,5 @@ public class Sala {
     public void setNomeLocatorio(String nomeLocatorio) {
         this.nomeLocatorio = nomeLocatorio;
     }
+
 }
