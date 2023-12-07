@@ -1,31 +1,31 @@
 package com.lista.atividade1.model;
 
-public class Produto {
+import java.util.UUID;
 
-    private int codigoBarra;
+public class Produto {
+    private UUID codigoBarra;
     private String nome;
     private double preco;
 
-
-    public Produto(){}
-    public Produto(int codigoBarra, String nome, double valor)
-    {
-        this.codigoBarra = codigoBarra;
-        this.nome = nome;
-        this.preco= valor;
+    public Produto() {
+        this.codigoBarra = UUID.randomUUID();
     }
 
-    public int getCodigoBarra(){
+    public Produto(String nome, double valor) {
+        this.codigoBarra = UUID.randomUUID();
+        this.nome = nome;
+        this.preco = valor;
+    }
+
+    public UUID getCodigoBarra() {
         return this.codigoBarra;
     }
-    public int setCodigoBarra(int codigoBarra){
-        this.codigoBarra = codigoBarra;
-        return codigoBarra;
-    }
-    public String getNome(){
+
+    public String getNome() {
         return this.nome;
     }
-    public void setNome(String nome){
+
+    public void setNome(String nome) {
         this.nome = nome;
     }
 
@@ -34,6 +34,8 @@ public class Produto {
     }
 
     public void setPreco(double preco) {
-        this.preco = preco;
+        if (preco > 0) {
+            this.preco = preco;
+        }
     }
 }
