@@ -7,19 +7,10 @@ import { HomeComponent } from './components/views/home/home.component';
 import { CardComponent } from './components/views/card/card.component';
 import { HttpClientModule } from '@angular/common/http';
 
-
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    CardComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-  ],
+  declarations: [AppComponent, HomeComponent, CardComponent],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

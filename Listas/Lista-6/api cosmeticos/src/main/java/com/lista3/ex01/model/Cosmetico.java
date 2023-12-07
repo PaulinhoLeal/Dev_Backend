@@ -1,27 +1,30 @@
 package com.lista3.ex01.model;
 
 import java.math.BigDecimal;
+import java.util.UUID;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Cosmetico {
-    private int id;
+    private UUID id;
     private String nome;
     private BigDecimal preco;
     private String imagem;
 
-    public Cosmetico(){}
-
-    public Cosmetico(int id, String nome, BigDecimal preco, String imagem){
-        this.id=id;
-        this.nome=nome;
-        this.preco=preco;
-        this.imagem=imagem;
+    public Cosmetico() {
+        this.id = UUID.randomUUID();
     }
 
-    public int getId(){
+    public Cosmetico(String nome, BigDecimal preco, String imagem) {
+        this.id = UUID.randomUUID();
+        this.nome = nome;
+        this.preco = preco;
+        this.imagem = imagem;
+    }
+
+    public UUID getId() {
         return id;
-    }
-    public void setId(int id){
-         this.id=id;
     }
 
     public String getNome() {
@@ -40,7 +43,12 @@ public class Cosmetico {
         this.preco = preco;
     }
 
-    public String getImagem (){return this.imagem;}
+    public String getImagem() {
+        return imagem;
+    }
 
-    public void setImagem(String imagem){this.imagem=imagem;}
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
+    }
+
 }

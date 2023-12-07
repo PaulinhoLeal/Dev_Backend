@@ -5,20 +5,20 @@ import { CosmeticoService } from 'src/app/services/cosmetico.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
   cosmeticos: Cosmetico[] = [];
 
-  constructor(private cosmeticoService:CosmeticoService){}
+  constructor(private cosmeticoService: CosmeticoService) {}
 
   ngOnInit(): void {
     this.getCosmeticos();
   }
 
-  getCosmeticos(){
-    this.cosmeticoService.getCosmeticos().subscribe(response =>{
-      this.cosmeticos=response;
-    })
+  getCosmeticos() {
+    this.cosmeticoService.getCosmeticos().subscribe((response) => {
+      this.cosmeticos = response;
+    });
   }
 }

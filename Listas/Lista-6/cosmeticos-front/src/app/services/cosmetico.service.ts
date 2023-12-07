@@ -4,15 +4,14 @@ import { Cosmetico } from '../model/cosmetico';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CosmeticoService {
+  public rota: string = 'http://localhost:8080/cosmeticos';
 
-  public rota:string = 'http://localhost:8080/cosmeticos';
+  constructor(private httpClient: HttpClient) {}
 
-  constructor(private httpClient: HttpClient) { }
-
-  public getCosmeticos():Observable<Cosmetico[]>{
-    return this.httpClient.get<Cosmetico[]>(this.rota+"/");
+  public getCosmeticos(): Observable<Cosmetico[]> {
+    return this.httpClient.get<Cosmetico[]>(this.rota + '/');
   }
 }
