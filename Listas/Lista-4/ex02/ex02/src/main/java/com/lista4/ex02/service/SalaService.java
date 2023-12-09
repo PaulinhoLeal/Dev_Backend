@@ -12,8 +12,24 @@ public class SalaService {
     @Autowired
     private BancoDados bancoDados;
 
-
-    public List<Sala> findAll(){
+    public List<Sala> findAll() {
         return bancoDados.findAll();
+    }
+
+    public String addSala(Sala sala) {
+        for (Sala salaI : bancoDados.findAll()) {
+            if (salaI.getNomeLocatorio().equalsIgnoreCase(sala.getNomeLocatorio())) {
+                return "Sala já existente!";
+            }
+        }
+        bancoDados.addSala(sala);
+        return sala.getNomeLocatorio() + " adicionada!";
+    }
+
+    public String verificaSala(String nomeLocatorio) {
+        if (bancoDados.estaAlugada(nomeLocatorio)) {
+            return "Sala indisponivel!";
+        }
+        return "Parabens. Sala alugada!";
     }
 }

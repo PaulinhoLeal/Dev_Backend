@@ -9,43 +9,31 @@ import java.util.List;
 @RestController
 @RequestMapping("/jogos")
 public class JogoController {
-
     private List<Jogo> jogos = new ArrayList<>();
 
-    public JogoController(){
-        jogos.add(new Jogo(1,"dark souls",30));
-        jogos.add(new Jogo(2,"rainbow six",20.99));
-        jogos.add(new Jogo(3,"fifa",2));
-        jogos.add(new Jogo(4,"CHRONO TRIGGER",10000));
-    }
-
     @GetMapping
-    public List<Jogo> getAll(){
+    public List<Jogo> getAll() {
         return jogos;
     }
-    @GetMapping("/{id}")
-    public Jogo getById(@PathVariable int id)
-    {
-        for(Jogo jogo: jogos)
-        {
-            if (jogo.getId() == id)
-            {
+
+    @GetMapping("{name}")
+    public Jogo getByName(@PathVariable String name) {
+        for (Jogo jogo : jogos) {
+            if (jogo.getNome().equals(name)) {
                 return jogo;
             }
         }
         return null;
     }
 
-   @PostMapping
-    public String save(@RequestBody Jogo jogo){
-        for (Jogo idIgual: jogos)
-        {
-            if(jogo.getId()!= idIgual.getId())
-            {
-                this.jogos.add(jogo);
-                return "Jogo cadastrado com sucesso:"+jogo.getNome();
+    @PostMapping
+    public String save(@RequestBody Jogo reqJogo) {
+        for (Jogo jogo : jogos) {
+            if (jogo.getNome().equalsIgnoreCase(reqJogo.getNome())) {
+                return "Jogo já cadastrado!";
             }
         }
-        return "Jogo ja cadastrado anteriormente";
-   }
+        jogos.add(reqJogo);
+        return reqJogo.getNome() + " cadastrado!";
+    }
 }

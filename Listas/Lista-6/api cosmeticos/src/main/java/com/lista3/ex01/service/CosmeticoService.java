@@ -6,38 +6,37 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 public class CosmeticoService {
+
    @Autowired
-   private BancoDados bancoDados;
-   public List<Cosmetico> findAll(){
-      return bancoDados.findAll();
+   private BancoDados bancoDeDados;
+
+   public List<Cosmetico> findAll() {
+      return bancoDeDados.findAll();
    }
 
-
-   public Cosmetico getByid(int id){
-      List<Cosmetico>cosmeticos = bancoDados.findAll();
-      for(Cosmetico cosmetico:cosmeticos){
-         if (cosmetico.getId()==id){
+   public Cosmetico getByNome(String nome) {
+      for (Cosmetico cosmetico : bancoDeDados.findAll()) {
+         if (cosmetico.getNome().equalsIgnoreCase(nome)) {
             return cosmetico;
          }
       }
       return null;
    }
-   public String cadastrarCosmetico(Cosmetico cosmetico){
-      List<Cosmetico>cosmeticos =bancoDados.findAll();
 
-      for (Cosmetico listaCosmetico:cosmeticos){
-         if (listaCosmetico.getId()==cosmetico.getId()){
-
-            return "O cosmetico"+ cosmetico.getNome()+"ja existe!";
+   public String save(Cosmetico cosmetico) {
+      for (Cosmetico listaCosmetico : bancoDeDados.findAll()) {
+         if (listaCosmetico.getNome().equalsIgnoreCase(cosmetico.getNome())) {
+            return cosmetico.getNome() + " ja existe!";
          }
       }
-         cosmeticos.add(cosmetico);
-         return "Cosmetico"+ cosmetico.getNome()+"cadastrado! ";
+      bancoDeDados.findAll().add(cosmetico);
+      return cosmetico.getNome() + " cadastrado!";
    }
 
-   public String delete(int id){
-      return bancoDados.delete(id);
+   public String delete(String nome) {
+      return bancoDeDados.delete(nome);
    }
 }
